@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "TvsVKV3T6G309S5xiJR4p0EUYxva0Uzyc/q1r7dONgg=",
+  "Source": "serviceApi",
+  "BasePath": "_content/serviceApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
