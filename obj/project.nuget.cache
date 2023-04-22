@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QP3Rfl8oW9sGaWBYkbwGdo7yVMObRj2jBBgXHjf+dFGwaTZhJM7yvsTCSKgYVU4FwOefUsXRD1omihqMHEGMQw==",
+  "dgSpecHash": "PC4hooZt5F6xamBGjj+m3c3U16nePqmYm/QF1rewVLInSx+7sMdno8TC3DaOfC03VCoYwt79mic4ABfNj8X4kA==",
   "success": true,
-  "projectFilePath": "D:\\dafi\\serviceApi\\serviceApi.csproj",
+  "projectFilePath": "d:\\dafi\\serviceApi\\serviceApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\elgae\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\elgae\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

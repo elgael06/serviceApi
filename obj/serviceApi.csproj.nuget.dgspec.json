@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dafi\\serviceApi\\serviceApi.csproj": {}
+    "d:\\dafi\\serviceApi\\serviceApi.csproj": {}
   },
   "projects": {
-    "D:\\dafi\\serviceApi\\serviceApi.csproj": {
+    "d:\\dafi\\serviceApi\\serviceApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dafi\\serviceApi\\serviceApi.csproj",
+        "projectUniqueName": "d:\\dafi\\serviceApi\\serviceApi.csproj",
         "projectName": "serviceApi",
-        "projectPath": "D:\\dafi\\serviceApi\\serviceApi.csproj",
+        "projectPath": "d:\\dafi\\serviceApi\\serviceApi.csproj",
         "packagesPath": "C:\\Users\\elgae\\.nuget\\packages\\",
-        "outputPath": "D:\\dafi\\serviceApi\\obj\\",
+        "outputPath": "d:\\dafi\\serviceApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\elgae\\AppData\\Roaming\\NuGet\\NuGet.Config"

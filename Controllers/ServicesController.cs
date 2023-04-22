@@ -31,7 +31,6 @@ namespace serviceApi.Controllers
         [HttpPost]
         public async Task<ActionResult<ServicesModel>> insert( InsertServiceDTO body)
         {
-            Console.WriteLine(body.descripcion);
             var value = await _service.CreateServices(
                 titulo: body.titulo,
                 descripcion: body.descripcion,
