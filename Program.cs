@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<ServicesDb>(opt =>
     opt.UseInMemoryDatabase("baseDb"));
 builder.Services.AddScoped<IRepository<ServicesModel>, Repository<ServicesModel>>();
+builder.Services.AddScoped<IRepository<UserModel>, Repository<UserModel>>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

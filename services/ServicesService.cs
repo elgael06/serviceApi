@@ -1,11 +1,12 @@
 using serviceApi.interfaces;
+using serviceApi.interfaces.DTO;
 using serviceApi.models;
 
 namespace serviceApi.services
 {
     public class ServicesService
     {
-        private IRepository<ServicesModel> repository;        
+        private readonly IRepository<ServicesModel> repository;       
 
         public ServicesService(IRepository<ServicesModel> context)
         {
@@ -17,20 +18,15 @@ namespace serviceApi.services
             return await repository.GetAll();
         }
 
-        public async Task<ServicesModel> CreateServices(            
-            string titulo,
-            string descripcion,
-            string imagen,
-            int user
-        )
+        public async Task<ServicesModel> CreateServices(InsertServiceDTO values)
         {
             ServicesModel service = new ServicesModel
             {
-                Titulo = titulo,
-                Descripcion = descripcion,
-                imagen = imagen,
+                Titulo = values.titulo,
+                Descripcion = values.descripcion,
+                imagen = values.imagen,
                 Estatus = Enums.EstatusEnum.Pendiente.ToString(),
-                UserCreate = user,
+                UserCreate = values.user,
                 Crete = DateTime.Now,
                 Update = DateTime.Now,
 

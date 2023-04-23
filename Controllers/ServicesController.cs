@@ -7,16 +7,14 @@ using serviceApi.interfaces.DTO;
 namespace serviceApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     public class ServicesController : ControllerBase
     {
-        private readonly IRepository<ServicesModel> repository;
         private readonly ServicesService _service;
 
         public ServicesController(IRepository<ServicesModel> context)
         {
-            repository = context;
-            _service = new ServicesService(repository);
+            _service = new ServicesService(context);
         }
 
         [HttpGet]
@@ -31,12 +29,7 @@ namespace serviceApi.Controllers
         [HttpPost]
         public async Task<ActionResult<ServicesModel>> insert( InsertServiceDTO body)
         {
-            var value = await _service.CreateServices(
-                titulo: body.titulo,
-                descripcion: body.descripcion,
-                imagen: body.imagen,
-                user: body.user
-            );
+            var value = await _service.CreateServices(body);
 
             if ( value == null)
                 return NotFound();
