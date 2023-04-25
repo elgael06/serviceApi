@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using serviceApi.interfaces;
 using serviceApi.interfaces.DTO;
 using serviceApi.models;
@@ -32,6 +28,22 @@ namespace serviceApi.services
                 Email = user.Email,
                 Services = user.Services
             };
+        }
+
+        public async Task<UserInserDTO> CreatetUser(UserInserDTO value)
+        {
+                var user = await repository.Insert( new UserModel()
+                {
+                    Nombre = value.Nombre,
+                    Email = value.Email,
+                    Password = value.Password,
+                });
+                value.Id = user.Id;
+                return new InsertUserResponse(
+                    id: user.Id,
+                    nombre: user.Nombre,
+                    email: user.Email
+                );
         }
 
         

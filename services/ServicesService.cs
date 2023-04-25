@@ -26,7 +26,7 @@ namespace serviceApi.services
                 Descripcion = values.descripcion,
                 imagen = values.imagen,
                 Estatus = Enums.EstatusEnum.Pendiente.ToString(),
-                UserCreate = values.user,
+                UserId = values.userId,
                 Crete = DateTime.Now,
                 Update = DateTime.Now,
 

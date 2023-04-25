@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using serviceApi.interfaces;
-using serviceApi.interfaces.DTO;
 using serviceApi.models;
 using serviceApi.services;
+using serviceApi.interfaces;
+using serviceApi.interfaces.DTO;
 
 namespace serviceApi.Controllers
 {
@@ -34,6 +30,15 @@ namespace serviceApi.Controllers
           var user = await _service.GetUserId(id);
           if (user == null) return NotFound();
           return Ok(user);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<InsertUserResponse>> InsertUser([FromBody] InsertUserResponse body) 
+        {
+                Console.WriteLine(body);
+                var user = await _service.CreatetUser(body);
+                if (user == null) return NotFound();
+                return Ok(user);
         }
     }
 }
