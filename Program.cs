@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ServicesDb>(opt =>
-    opt.UseInMemoryDatabase("baseDb"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
 builder.Services.AddScoped<IRepository<ServicesModel>, Repository<ServicesModel>>();
 builder.Services.AddScoped<IRepository<UserModel>, Repository<UserModel>>();
 builder.Services.AddEndpointsApiExplorer();
