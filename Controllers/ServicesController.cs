@@ -3,6 +3,7 @@ using serviceApi.models;
 using serviceApi.services;
 using serviceApi.interfaces;
 using serviceApi.interfaces.DTO;
+using serviceApi.context;
 
 namespace serviceApi.Controllers
 {
@@ -12,9 +13,9 @@ namespace serviceApi.Controllers
     {
         private readonly ServicesService _service;
 
-        public ServicesController(IRepository<ServicesModel> context)
+        public ServicesController(ServicesDb contex)
         {
-            _service = new ServicesService(context);
+            _service = new ServicesService(contex);
         }
 
         [HttpGet]
@@ -35,5 +36,17 @@ namespace serviceApi.Controllers
                 return NotFound();
             return Ok(value);
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ServicesModel>> Update([FromRoute] string id, [FromBody]UpdateServiceDTO values)
+        {
+            var data = await _service.AuthService(id, values.Estatus, values.UserId);
+
+            if (data == null)
+            {
+                return NotFound();
+            }
+            return Ok(data);
+        } 
     }
 }

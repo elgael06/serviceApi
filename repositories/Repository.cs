@@ -65,10 +65,18 @@ namespace serviceApi.repositories
         {
             return await EntitySet.AsNoTracking().FirstOrDefaultAsync(express);
         }
-        // public async Task<IEnumerable<T>> FindAll(Expression<Func< T, bool>> express )
-        // {
-        //     return await EntitySet.AsNoTracking().ForEachAsync(express);
-        // }
+        
+        public virtual IQueryable<T> Query(Expression<Func<T, bool>> where)
+        {
+            IQueryable<T> query = EntitySet;
+
+            if (where != null)
+            {
+                query = query.Where(where);
+            }
+
+            return query;
+        }
 
         protected virtual void Dispose(bool disposing)
         {

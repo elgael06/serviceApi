@@ -3,6 +3,7 @@ using serviceApi.models;
 using serviceApi.services;
 using serviceApi.interfaces;
 using serviceApi.interfaces.DTO;
+using serviceApi.context;
 
 namespace serviceApi.Controllers
 {
@@ -11,12 +12,12 @@ namespace serviceApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserService _service;
-        public UserController(IRepository<UserModel> context)
+        public UserController(ServicesDb context)
         {
             _service = new UserService(context);
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<UserModel>>> GetUsers()
         {
             var values = await _service.GetAllUsers();
@@ -24,9 +25,10 @@ namespace serviceApi.Controllers
             return Ok(values);
         }
 
-        [HttpGet("$id")]
-        public async Task<ActionResult<UserResponseDTO>> GetUserId (string id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserResponseDTO>> GetUserId([FromRoute]string id)
         {
+            Console.WriteLine(id);
           var user = await _service.GetUserId(id);
           if (user == null) return NotFound();
           return Ok(user);

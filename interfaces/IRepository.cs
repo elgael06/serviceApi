@@ -12,5 +12,6 @@ namespace serviceApi.interfaces
         Task<T> Update(T entity);
         Task<T> Delete(string id);
         Task<T> Find(Expression<Func<T, bool>> express );
+        IQueryable<T> Query(Expression<Func<T, bool>> where);
     }
 }
